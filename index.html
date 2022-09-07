@@ -1,0 +1,27 @@
+<button id="pay">Pay</button>
+
+<script>
+  var button = document.getElementById('pay');
+  button.addEventListener('click', function(){
+    var clientid = 'Oleg';
+    var sum = '2342134';
+    var orderid = '123123';
+    var phone = '23142314';
+
+    var urlApi = "https://demo.paykeeper.ru/order/inline/";
+    let data = {
+      clientid: clientid,
+      sum: sum,
+      orderid: orderid,
+      client_phone: phone,
+    };
+
+    const response = fetch(urlApi, {
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded",
+      },
+      method: "POST",
+      body: new URLSearchParams(data)
+    });
+  });
+</script>
